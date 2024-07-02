@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(205, 200, 200);
+}
+
+.titulo {
+  display: flex;
+  flex-wrap: nowrap;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  border-radius: 20px;
+  background-color: burlywood;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.agendas {
+  background-color: cornsilk;
+}
+.nombres {
+  font-size: larger;
+  color: darkkhaki;
+}
+.num {
+  color: rgb(234, 254, 54);
+}
+.agregar {
+  width: auto;
+}
+#list {
+  background-color: rgb(248, 209, 209);
+  border: dashed;
+  border-color: rgb(255, 119, 0);
+}
+.form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.addlist {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff; /* Color azul de Bootstrap */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addlist:hover {
+  background-color: #0056b3; /* Un tono más oscuro para el hover */
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
