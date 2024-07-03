@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       postContacto: async (agendasslug, newContact) => {
         try {
           const response = await fetch(
-            `https://playground.4geeks.com/contact/agendas/${agendasslug}/contacts/${newContact}`,
+            `https://playground.4geeks.com/contact/agendas/Dayloc/contacts`,
             {
               method: "POST",
               headers: {
@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             });
             console.log("Contacto añadido con éxito");
           } else {
-            console.error("Error al crear contacto");
+            console.error("Error al crear contacto", response.status);
           }
         } catch (error) {
           console.error("Error agregando contacto:", error);
@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       deleteContact: async (id) => {
         try {
           const response = await fetch(
-            `https://playground.4geeks.com/contact/agendas/${agendasslug}/contacts/${id}`,
+            `https://playground.4geeks.com/contact/agendas/Dayloc/contacts/${id}`,
             {
               method: "DELETE",
             }
@@ -109,7 +109,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       updateContact: async (id, updatedContact) => {
         try {
           const response = await fetch(
-            `https://playground.4geeks.com/contact/agendas/${agendasslug}/contacts/${id}`,
+            `https://playground.4geeks.com/contact/agendas/Dayloc/contacts/${id}`,
             {
               method: "PUT",
               headers: {
@@ -133,7 +133,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error("Error updating contact:", error);
         }
       },
-      // Otras acciones aquí según sea necesario
     },
   };
 };

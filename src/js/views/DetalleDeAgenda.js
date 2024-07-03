@@ -194,6 +194,7 @@ const Detalle = () => {
       <Link className="btn btn-secondary mt-3 mb-5" to="/">
         Agendas
       </Link>
+      <h1 className="mb-3">Agregar Contacto </h1>
       <Agregar />
     </div>
   );

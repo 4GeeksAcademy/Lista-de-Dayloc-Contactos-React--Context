@@ -8,64 +8,67 @@ export const Agregar = () => {
   const [emailValue, setEmailValue] = useState("");
   const [addressValue, setAddressValue] = useState("");
 
-  const validateInputName = () => {
-    if (!validateInputName.trim()) alert("Nombre de Contacto necesario");
-    setNameValue("");
+  const { actions } = useContext(Context);
+  const slug = "Dayloc";
+  const validateInput = () => {
+    if (!nameValue.trim()) {
+      alert("Nombre de Contacto necesario");
+      return false;
+    }
+    if (!telefonoValue.trim()) {
+      alert("Teléfono necesario");
+      return false;
+    }
+    if (!emailValue.trim()) {
+      alert("Email necesario");
+      return false;
+    }
+    if (!addressValue.trim()) {
+      alert("Dirección necesaria");
+      return false;
+    }
+    return true;
   };
-  const validateInputTel = () => {
-    if (!validateInputTel.trim()) alert("Telefono nrcesario");
-    setTelefonoValue("");
-  };
-  const validateInputEmail = () => {
-    if (!validateInputEmail.trim()) alert("Email Necesario");
-    setEmailValue("");
-  };
-  const validateInputAddress = () => {
-    if (!validateInputAddress.trim()) alert("Dirección");
-    setAddressValue("");
-  };
-  const [newContact, setNewContact] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address: "",
-  });
-  const saveContact = [
-    {
+
+  const saveContact = () => {
+    const newContact = {
       name: nameValue,
       phone: telefonoValue,
       email: emailValue,
       address: addressValue,
-    },
-  ];
-  const todos = () => {
-    setNewContact(saveContact);
+      agenda_slug: slug,
+    };
 
-    setNameValue("");
-    setTelefonoValue("");
-    setEmailValue("");
-    setAddressValue("");
+    actions.postContacto("Dayloc", newContact).then(() => {
+      setNameValue("");
+      setTelefonoValue("");
+      setEmailValue("");
+      setAddressValue("");
+    });
   };
-  console.log("newContact", newContact);
+
+  const handleSave = () => {
+    if (validateInput()) {
+      saveContact();
+    }
+  };
+
   return (
-    <div className="container text-center " id="contagregar">
+    <div className="container text-center" id="contagregar">
       <div className="row" id="agr">
         <div className="col-3">
           <input
             className="Name"
             value={nameValue}
             onChange={(event) => setNameValue(event.target.value)}
-            onKeyDown={(event) => event.key === "Enter" && validateInputName()}
             placeholder="Nombre de contacto"
           ></input>
         </div>
         <div className="col-3">
-          {" "}
           <input
             className="telefono"
             value={telefonoValue}
             onChange={(event) => setTelefonoValue(event.target.value)}
-            onKeyDown={(event) => event.key === "Enter" && validateInputTel()}
             placeholder="Teléfono"
           ></input>
         </div>
@@ -74,7 +77,6 @@ export const Agregar = () => {
             className="email"
             value={emailValue}
             onChange={(event) => setEmailValue(event.target.value)}
-            onKeyDown={(event) => event.key === "Enter" && validateInputEmail()}
             placeholder="Email"
           ></input>
         </div>
@@ -83,15 +85,11 @@ export const Agregar = () => {
             className="direccion"
             value={addressValue}
             onChange={(event) => setAddressValue(event.target.value)}
-            onKeyDown={(event) =>
-              event.key === "Enter" && validateInputAddress()
-            }
             placeholder="Dirección"
           ></input>
         </div>
       </div>
-
-      <button className="guardar" onClick={() => todos()}>
+      <button className="guardar" onClick={handleSave}>
         Guardar
       </button>
     </div>
