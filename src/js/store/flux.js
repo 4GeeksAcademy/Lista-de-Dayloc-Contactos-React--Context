@@ -60,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       postContacto: async (agendasslug, newContact) => {
         try {
           const response = await fetch(
-            `https://playground.4geeks.com/contact/agendas/Dayloc/contacts`,
+            "https://playground.4geeks.com/contact/agendas/Dayloc/contacts",
             {
               method: "POST",
               headers: {
@@ -76,6 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               contacts: [...store.contacts, addedContact],
             });
             console.log("Contacto añadido con éxito");
+            window.location.reload();
           } else {
             console.error("Error al crear contacto", response.status);
           }

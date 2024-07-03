@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/agrear.css";
+import "../../styles/agregar.css";
 
 export const Agregar = () => {
   const [nameValue, setNameValue] = useState("");
@@ -55,40 +55,39 @@ export const Agregar = () => {
 
   return (
     <div className="container text-center" id="contagregar">
-      <div className="row" id="agr">
-        <div className="col-3">
-          <input
-            className="Name"
-            value={nameValue}
-            onChange={(event) => setNameValue(event.target.value)}
-            placeholder="Nombre de contacto"
-          ></input>
-        </div>
-        <div className="col-3">
-          <input
-            className="telefono"
-            value={telefonoValue}
-            onChange={(event) => setTelefonoValue(event.target.value)}
-            placeholder="Teléfono"
-          ></input>
-        </div>
-        <div className="col-3">
-          <input
-            className="email"
-            value={emailValue}
-            onChange={(event) => setEmailValue(event.target.value)}
-            placeholder="Email"
-          ></input>
-        </div>
-        <div className="col-3">
-          <input
-            className="direccion"
-            value={addressValue}
-            onChange={(event) => setAddressValue(event.target.value)}
-            placeholder="Dirección"
-          ></input>
-        </div>
+      <div className="mb-3">
+        <input
+          className="Name"
+          value={nameValue}
+          onChange={(event) => setNameValue(event.target.value)}
+          placeholder="Nombre de contacto"
+        ></input>
       </div>
+      <div className="mb-3">
+        <input
+          className="telefono"
+          value={telefonoValue}
+          onChange={(event) => setTelefonoValue(event.target.value)}
+          placeholder="Teléfono"
+        ></input>
+      </div>
+      <div className="mb-3">
+        <input
+          className="email"
+          value={emailValue}
+          onChange={(event) => setEmailValue(event.target.value)}
+          placeholder="Email"
+        ></input>
+      </div>
+      <div className="mb-3">
+        <input
+          className="direccion"
+          value={addressValue}
+          onChange={(event) => setAddressValue(event.target.value)}
+          placeholder="Dirección"
+        ></input>
+      </div>
+
       <button className="guardar" onClick={handleSave}>
         Guardar
       </button>
